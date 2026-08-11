@@ -37,7 +37,7 @@ main{padding:30px 10px 80px 26px;min-width:0}
 .bootlog{border:1px solid var(--line);border-radius:6px;padding:12px 14px;background:var(--bg2);margin-bottom:30px}
 .bootlog .btitle{color:var(--dim);font-size:11px;letter-spacing:.14em;margin-bottom:8px}
 .bl{font-size:12.5px;line-height:1.75}
-.bl.sys{display:flex;justify-content:space-between;gap:14px;color:var(--amber)}
+.bl.sys{display:flex;justify-content:space-between;gap:14px;color:var(--dim)}
 .bl.sys .btag{color:var(--grn);font-weight:700;flex-shrink:0}
 .bl.sys.warn .btag{color:var(--amber)}
 .bl.sys.fail .btag{color:#f7768e}
@@ -340,7 +340,7 @@ else {
 const blog = document.querySelector('.bootlog');
 const tws = [...document.querySelectorAll('.bl.tw')];
 if (blog && tws.length) {
-  tws.forEach(b => b.textContent = b.dataset.txt || b.textContent);
+  tws.forEach(b => b.textContent = b.dataset.t || b.textContent);
   blog.style.height = blog.getBoundingClientRect().height + 'px';
   tws.forEach(b => b.textContent = '');
 }
@@ -354,12 +354,12 @@ const startType = () => {
   let li = 0, ci = 0;
   const iv = setInterval(() => {
     if (li >= tws.length) { clearInterval(iv); return; }
-    const b = tws[li], txt = b.dataset.txt;
+    const b = tws[li], txt = b.dataset.t;
     if (ci < txt.length) { b.textContent = txt.slice(0, ++ci); }
     else { ci = 0; li++; }
   }, 9);
 };
-if (reduced) { tws.forEach(b => b.textContent = b.dataset.txt || ''); }
+if (reduced) { tws.forEach(b => b.textContent = b.dataset.t || ''); }
 else setTimeout(startType, 400 + 5 * 420 + 300);
 /* progress bar */
 const prog = document.getElementById('prog');
