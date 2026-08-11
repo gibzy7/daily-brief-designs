@@ -351,12 +351,13 @@ if (blog && tws.length) {
    tag, then the tag drops in (Anton, Aug 11 — readability) */
 const sysLines = [...document.querySelectorAll('.bl.sys')];
 const N = sysLines.length;
-const tickLine = el => {
+const tickLine = (el, i) => {
   const dots = el.querySelector('.bdots'), tag = el.querySelector('.btag');
   const iv = setInterval(() => {
     if (reduced || (dots.textContent.length > 0 && dots.scrollWidth > dots.clientWidth) || dots.textContent.length >= 200) {
       clearInterval(iv);
       tag.textContent = tag.dataset.tag;
+      if (i === sysLines.length - 1) startType();
       return;
     }
     dots.textContent += '_';
@@ -366,8 +367,8 @@ if (reduced) sysLines.forEach(el => {
   el.querySelector('.bdots').textContent = '________________';
   el.querySelector('.btag').textContent = el.querySelector('.btag').dataset.tag;
 });
-else sysLines.forEach((el, i) => setTimeout(() => tickLine(el), 400 + i * 620));
-/* health-check report types itself in AFTER the tags (ordered, Aug 11) */
+else sysLines.forEach((el, i) => setTimeout(() => tickLine(el, i), 400 + i * 620));
+/* health-check report types itself in AFTER all tags dropped (chained, Aug 11) */
 const startType = () => {
   tws.forEach(b => { b.textContent = ''; });
   let li = 0, ci = 0;
@@ -379,7 +380,7 @@ const startType = () => {
   }, 9);
 };
 if (reduced) { tws.forEach(b => b.textContent = b.dataset.t || ''); }
-else setTimeout(startType, 400 + 5 * 420 + 300);
+if (N === 0) startType();
 /* progress bar */
 const prog = document.getElementById('prog');
 addEventListener('scroll', () => {
