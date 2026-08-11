@@ -354,7 +354,7 @@ const N = sysLines.length;
 const tickLine = el => {
   const dots = el.querySelector('.bdots'), tag = el.querySelector('.btag');
   const iv = setInterval(() => {
-    if (reduced || (dots.textContent.length > 0 && dots.scrollWidth > dots.clientWidth) || dots.textContent.length >= 48) {
+    if (reduced || (dots.textContent.length > 0 && dots.scrollWidth > dots.clientWidth) || dots.textContent.length >= 200) {
       clearInterval(iv);
       tag.textContent = tag.dataset.tag;
       return;
