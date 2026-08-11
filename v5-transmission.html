@@ -40,6 +40,8 @@ main{padding:30px 10px 80px 26px;min-width:0}
 .bl.ok{color:var(--grn)} .bl.warn{color:var(--amber)} .bl.fail{color:#f7768e} .bl.dim{color:var(--dim)} .bl.cont{padding-left:10px}
 /* sys lines AFTER the status color rules — same specificity, later wins */
 .bl.sys{display:flex;justify-content:space-between;gap:14px;color:var(--dim)}
+.bl.sys .stext{white-space:nowrap}
+.bl.sys .bdots{flex:1;overflow:hidden;white-space:nowrap;color:var(--dim);letter-spacing:.1em}
 .bl.sys .btag{color:var(--grn);font-weight:700;flex-shrink:0}
 .bl.sys.warn .btag{color:var(--amber)}
 .bl.sys.fail .btag{color:#f7768e}
@@ -119,12 +121,12 @@ html{scroll-behavior:auto}
   </header>
   <section id="status" class="sec" data-sec="status">
     <div class="bootlog"><div class="btitle">// BOOT SEQUENCE</div>
-    <div class="bl sys ok" data-t="github backup: 2026-08-10 06:08"><span>github backup: 2026-08-10 06:08</span><span class="btag" data-tag="[ OK ]"></span></div>
-<div class="bl sys ok" data-t="cpu temp: 53.8°C"><span>cpu temp: 53.8°C</span><span class="btag" data-tag="[ OK ]"></span></div>
-<div class="bl sys ok" data-t="imdb watchlist synced"><span>imdb watchlist synced</span><span class="btag" data-tag="[ OK ]"></span></div>
-<div class="bl sys ok" data-t="top-100 scanned · 0 new quality releases"><span>top-100 scanned · 0 new quality releases</span><span class="btag" data-tag="[ OK ]"></span></div>
-<div class="bl sys ok" data-t="content pieces in current brief:"><span>content pieces in current brief:</span><span class="btag" data-tag="[ 14 ]"></span></div>
-<div class="bl sys warn" data-t="health-check report:"><span>health-check report:</span><span class="btag" data-tag="[ WARN ]"></span></div>
+    <div class="bl sys ok" data-t="github backup: 2026-08-10 06:08"><span class="stext">github backup: 2026-08-10 06:08</span><span class="bdots"></span><span class="btag" data-tag="[ OK ]"></span></div>
+<div class="bl sys ok" data-t="cpu temp: 53.8°C"><span class="stext">cpu temp: 53.8°C</span><span class="bdots"></span><span class="btag" data-tag="[ OK ]"></span></div>
+<div class="bl sys ok" data-t="imdb watchlist synced"><span class="stext">imdb watchlist synced</span><span class="bdots"></span><span class="btag" data-tag="[ OK ]"></span></div>
+<div class="bl sys ok" data-t="top-100 scanned · 0 new quality releases"><span class="stext">top-100 scanned · 0 new quality releases</span><span class="bdots"></span><span class="btag" data-tag="[ OK ]"></span></div>
+<div class="bl sys ok" data-t="content pieces in current brief:"><span class="stext">content pieces in current brief:</span><span class="bdots"></span><span class="btag" data-tag="[ 14 ]"></span></div>
+<div class="bl sys warn" data-t="health-check report:"><span class="stext">health-check report:</span><span class="bdots"></span><span class="btag" data-tag="[ WARN ]"></span></div>
 <div class="bl tw dim cont" data-t="•  Hermes doctor: 3 new warnings — ⚠ Browser tools (agent-browser) deps (0 critical, 2 high, 0 moderate — run: cd /">•  Hermes doctor: 3 new warnings — ⚠ Browser tools (agent-browser) deps (0 critical, 2 high, 0 moderate — run: cd /</div>
 <div class="bl tw dim cont" data-t="•  Screenshot watcher: not running — no process matching screenshot-watcher.sh">•  Screenshot watcher: not running — no process matching screenshot-watcher.sh</div>
 <div class="bl tw dim cont" data-t="•  System journal errors: 2 errors — Aug 10 13:56:45 raspi systemd-udevd[348]: /usr/lib/udev/rules.d/90-alsa-restore.">•  System journal errors: 2 errors — Aug 10 13:56:45 raspi systemd-udevd[348]: /usr/lib/udev/rules.d/90-alsa-restore.</div>
@@ -345,10 +347,26 @@ if (blog && tws.length) {
   blog.style.height = blog.getBoundingClientRect().height + 'px';
   tws.forEach(b => b.textContent = '');
 }
-/* system lines: text visible from the start, tags tick in one by one */
-const btags = [...document.querySelectorAll('.bl.sys .btag')];
-if (reduced) btags.forEach(el => el.textContent = el.dataset.tag);
-else btags.forEach((el, i) => setTimeout(() => el.textContent = el.dataset.tag, 400 + i * 420));
+/* system lines: text visible from the start; underscores print toward each
+   tag, then the tag drops in (Anton, Aug 11 — readability) */
+const sysLines = [...document.querySelectorAll('.bl.sys')];
+const N = sysLines.length;
+const tickLine = el => {
+  const dots = el.querySelector('.bdots'), tag = el.querySelector('.btag');
+  const iv = setInterval(() => {
+    if (reduced || dots.scrollWidth >= dots.clientWidth || dots.textContent.length >= 48) {
+      clearInterval(iv);
+      tag.textContent = tag.dataset.tag;
+      return;
+    }
+    dots.textContent += '_';
+  }, 8);
+};
+if (reduced) sysLines.forEach(el => {
+  el.querySelector('.bdots').textContent = '________________';
+  el.querySelector('.btag').textContent = el.querySelector('.btag').dataset.tag;
+});
+else sysLines.forEach((el, i) => setTimeout(() => tickLine(el), 400 + i * 620));
 /* health-check report types itself in AFTER the tags (ordered, Aug 11) */
 const startType = () => {
   tws.forEach(b => { b.textContent = ''; });
