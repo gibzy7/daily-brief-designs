@@ -337,14 +337,20 @@ else {
     if (k >= full.length) clearInterval(iv);
   }, 22);
 }
-/* boot log: size the box with full content first (no growth as it prints) */
+/* boot log: size the box with full content first (no growth as it prints);
+   re-measure when web fonts land (they change line wrapping) and on resize */
 const blog = document.querySelector('.bootlog');
 const tws = [...document.querySelectorAll('.bl.tw')];
-if (blog && tws.length) {
-  tws.forEach(b => b.textContent = b.dataset.t || b.textContent);
+let typing = false;
+const sizeLog = () => {
+  if (!blog || typing || !tws.length) return;
+  tws.forEach(b => b.textContent = b.dataset.t || '');
   blog.style.height = blog.getBoundingClientRect().height + 'px';
   tws.forEach(b => b.textContent = '');
-}
+};
+sizeLog();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeLog);
+addEventListener('resize', sizeLog);
 /* system lines: text visible from the start; underscores print toward each
    tag, then the tag drops in (Anton, Aug 11 — readability) */
 const sysLines = [...document.querySelectorAll('.bl.sys')];
@@ -368,6 +374,7 @@ if (reduced) sysLines.forEach(el => {
 else sysLines.forEach((el, i) => setTimeout(() => tickLine(el, i), 400 + i * 620));
 /* health-check report types itself in AFTER all tags dropped (chained, Aug 11) */
 const startType = () => {
+  typing = true;
   tws.forEach(b => { b.textContent = ''; });
   let li = 0, ci = 0;
   const iv = setInterval(() => {
