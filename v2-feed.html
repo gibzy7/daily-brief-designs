@@ -1,0 +1,378 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Brief — 2026-08-11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0d13;--card:#10151f;--card2:#131926;--line:#1d2634;--text:#e8ecf3;--dim:#7d8aa0;--acc:#4f8cff;--ok:#3ddc84;--warn:#ffb454}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.65}
+a{color:var(--acc);text-decoration:none}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--acc),#7c5cff);width:0;z-index:99}
+.shell{display:grid;grid-template-columns:232px 1fr;max-width:1240px;margin:0 auto}
+.side{position:fixed;top:0;bottom:0;left:0;width:232px;padding:28px 20px;border-right:1px solid var(--line);background:var(--bg);z-index:10;display:flex;flex-direction:column}
+.logo{font-weight:800;font-size:17px;letter-spacing:.02em;margin-bottom:6px}
+.logo b{color:var(--acc)}
+.logo .date{display:block;font-size:11px;color:var(--dim);font-weight:500;margin-bottom:22px}
+.side a{display:flex;gap:10px;align-items:center;color:var(--dim);font-size:13.5px;padding:8px 10px;border-radius:8px;margin-bottom:2px;font-weight:500}
+.side a:hover{color:var(--text);background:var(--card)}
+.side a.active{color:var(--text);background:var(--card2);box-shadow:inset 2px 0 0 var(--acc)}
+.side .nic{opacity:.7}
+.sidefoot{margin-top:auto;font-size:11px;color:var(--dim);line-height:1.7}
+main{padding:34px 40px 90px;min-width:0}
+.brandline{display:flex;align-items:baseline;gap:14px;margin-bottom:30px}
+.brandline h1{font-size:22px;font-weight:800}
+.brandline .when{color:var(--dim);font-size:12.5px}
+.sec-h{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:34px 0 12px}
+section#weather .sec-h{margin-top:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px}
+.card summary{cursor:pointer;list-style:none}
+.card summary::-webkit-details-marker{display:none}
+.weather-card{display:flex;align-items:center;gap:16px;padding:14px 18px;margin-top:4px}
+.weather-card h3{font-size:16px}
+.dim{color:var(--dim);font-size:12.5px}
+.chip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;background:var(--card2);color:var(--dim)}
+.chip-weather{color:#7cc4ff;background:#0f2033}
+.chip-world,.chip-russia,.chip-politics{color:#ff9d9d;background:#331518}
+.chip-gaming,.chip-movies{color:#c9a7ff;background:#221433}
+.chip-reading{color:#ffd28a;background:#332608}
+.chip-tech{color:#7cffb2;background:#0f2b1d}
+.chip-cool{color:#ffb9e2;background:#2e1526}
+.item summary .row1{display:flex;align-items:center;gap:10px}
+.score{color:var(--ok);font-size:12.5px;font-weight:700}
+.ccnt{color:var(--dim);font-size:12px}
+.chev{margin-left:auto;color:var(--dim);transition:transform .2s}
+.item[open] .chev{transform:rotate(180deg)}
+.item h3{font-size:16.5px;font-weight:700;margin-top:10px;line-height:1.4}
+.item .meta{color:var(--dim);font-size:12px;margin-top:5px}
+.item .body{margin-top:12px;color:#c6cede;font-size:14.5px;border-top:1px solid var(--line);padding-top:14px}
+.go{font-size:12.5px;font-weight:600;display:inline-block;margin-top:8px}
+.cmt{background:var(--card2);border-radius:10px;padding:11px 14px;margin-top:10px}
+.cmeta{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+.cav{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--acc),#7c5cff);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.cname{font-size:12px;font-weight:600}
+.cscore{font-size:11.5px;color:var(--dim)}
+.cmt p{font-size:13.5px;color:#b6bfce}
+.status pre{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#9fb4d0;white-space:pre-wrap;line-height:1.6}
+.fun p{font-size:15.5px}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.mcard img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover}
+.mcard figcaption{padding:11px 14px;font-size:13.5px;font-weight:600}
+footer{margin-top:44px;color:var(--dim);font-size:12.5px;text-align:center}
+@media(max-width:960px){.side{display:none}.shell{grid-template-columns:1fr}main{padding:22px 16px 60px}.mgrid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="progress" id="prog"></div>
+<div class="shell">
+<nav class="side">
+  <div class="logo">DAILY<b>//</b>BRIEF<span class="date">2026-08-11 · 09:00 MSK</span></div>
+  <a href="#world" data-sec="world"><span class="nic">◈</span>World</a><a href="#russia" data-sec="russia"><span class="nic">◈</span>Russia</a><a href="#politics" data-sec="politics"><span class="nic">◈</span>Politics</a><a href="#gaming" data-sec="gaming"><span class="nic">◈</span>Gaming</a><a href="#movies" data-sec="movies"><span class="nic">◈</span>Movies & TV</a><a href="#reading" data-sec="reading"><span class="nic">◈</span>Reading</a><a href="#tech" data-sec="tech"><span class="nic">◈</span>Tech</a><a href="#cool" data-sec="cool"><span class="nic">◈</span>Cool stuff</a>
+  <a href="#fun">Fun fact</a>
+  <a href="#memes">Memes</a>
+  <div class="sidefoot">Built on a Pi 5<br>Delivered at 09:00<br>Reply «rate» to grade</div>
+</nav>
+<main>
+  <div class="brandline"><h1>Morning brief</h1><span class="when">2026-08-11 — Tuesday</span></div>
+  <section id="status"><h2 class="sec-h">System status</h2>
+          <div class="card status"><pre>5 yellow:
+- Hermes doctor: 3 new warnings — ⚠ Browser tools (agent-browser) deps (0 critical, 2 high, 0 moderate — run: cd /
+- Screenshot watcher: not running — no process matching screenshot-watcher.sh
+- System journal errors: 2 errors — Aug 10 13:56:45 raspi systemd-udevd[348]: /usr/lib/udev/rules.d/90-alsa-restore.
+- Hermes logs: err=8 crit=0 — errors.log ERROR=8 (sample: 2026-08-11 00:23:02,931 ERROR [20260810_233757_3f284
+- SSH auth failures: 2 errors — Aug 10 13:56:45 raspi systemd-udevd[348]: /usr/lib/udev/rules.d/90-alsa-restore.
+Drift: at-spi-dbus-bus.service running but not in manifest</pre></div></section>
+  <section id="weather" class="card weather-card"><div class="chip chip-weather">Weather</div>
+              <h3>Moscow: sunny, +19°C</h3><p class="dim">Moscow · today</p></section><section id="world">
+          <h2 class="sec-h">World</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-world">World</span>
+                  <span class="score">▲ 0</span>
+                  <span class="ccnt">0 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Colombia earthquake: 7.4, 134+ dead, thousands missing</h3>
+                <div class="meta"></div>
+              </summary>
+              <div class="body"><p>A 7.4-magnitude quake struck off Colombia's Pacific coast, killing at least 134 people; thousands remain missing as rescue crews reach coastal towns. The capital shook hard; aftershocks continue.</p>
+                <a class="go" href="https://www.reuters.com/world/earthquake-pacific-coast-shakes-colombian-capital-2026-08-10/" target="_blank" rel="noopener">Open source ↗</a>
+                
+              </div></details></section><section id="russia">
+          <h2 class="sec-h">Russia</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-russia">Russia</span>
+                  <span class="score">▲ 0</span>
+                  <span class="ccnt">0 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Overnight: 396 Ukrainian drones intercepted; Voronezh hit</h3>
+                <div class="meta"></div>
+              </summary>
+              <div class="body"><p>Russia's air defense intercepted 396 Ukrainian drones overnight; the Voronezh region took hits. One of the largest overnight drone waves of the war.</p>
+                <a class="go" href="https://iz.ru/2147078/sily-pvo-za-minuvshuiu-noch-perekhvatili-396-ukrainskikh-dronov-nad-rossiei" target="_blank" rel="noopener">Open source ↗</a>
+                
+              </div></details><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-russia">Russia</span>
+                  <span class="score">▲ 0</span>
+                  <span class="ccnt">0 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Russia back in top-3 travel destinations, first time in 2 years</h3>
+                <div class="meta"></div>
+              </summary>
+              <div class="body"><p>Russia returned to the top-3 most popular travel destinations for Russian tourists, the first time in two years — a sign of the market's reorientation.</p>
+                <a class="go" href="https://www.rbc.ru/rbcfreenews/6a7a32c19a794743d3baf8e0" target="_blank" rel="noopener">Open source ↗</a>
+                
+              </div></details></section><section id="politics">
+          <h2 class="sec-h">Politics</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-politics">Politics</span>
+                  <span class="score">▲ 0</span>
+                  <span class="ccnt">0 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>US House introduces bipartisan Russia + Iran sanctions bill</h3>
+                <div class="meta"></div>
+              </summary>
+              <div class="body"><p>A bipartisan group in the US House introduced a sanctions bill targeting both Russia and Iran, tightening restrictions on energy, finance and dual-use tech exports.</p>
+                <a class="go" href="https://www.rbc.ru/politics/11/08/2026/6a7a7e709a7947117c748703" target="_blank" rel="noopener">Open source ↗</a>
+                
+              </div></details><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-politics">Politics</span>
+                  <span class="score">▲ 0</span>
+                  <span class="ccnt">0 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Turkey passes limited amnesty law for PKK members</h3>
+                <div class="meta"></div>
+              </summary>
+              <div class="body"><p>Turkey's parliament passed a limited amnesty law covering some PKK-linked cases — a politically charged step in the ongoing peace process.</p>
+                <a class="go" href="https://www.rbc.ru/politics/11/08/2026/6a7a9d5e9a79472564a39da1" target="_blank" rel="noopener">Open source ↗</a>
+                
+              </div></details></section><section id="gaming">
+          <h2 class="sec-h">Gaming</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-gaming">Gaming</span>
+                  <span class="score">▲ 819</span>
+                  <span class="ccnt">619 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Jason Schreier - Grand Theft Auto VI Pre-Orders 'Vastly' Beat Expectations, Take-Two CEO Tells Me</h3>
+                <div class="meta">r/Games · u/Capn_C</div>
+              </summary>
+              <div class="body"><p>Jason Schreier - Grand Theft Auto VI Pre-Orders 'Vastly' Beat Expectations, Take-Two CEO Tells Me</p>
+                <a class="go" href="https://reddit.com/r/Games/comments/1vibkkq/jason_schreier_grand_theft_auto_vi_preorders/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">M</span><span class="cname">MagicMST</span><span class="cscore">▲ 6</span></div>
+              <p>The general public are smart to stay away from reddit.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">T</span><span class="cname">Tostecles</span><span class="cscore">▲ 5</span></div>
+              <p>I expected GTA V 's movement and shooting to feel like Max Payne 3 prior to release</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">H</span><span class="cname">HouseDisastrous2313</span><span class="cscore">▲ 5</span></div>
+              <p>GTA online has some really fun times to be had with friends thanks to heists. But then everything else is just... meh. And then since they don't want you to make money too fast, you have to wait some time between each heists.</p></div>
+              </div></details><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-gaming">Gaming</span>
+                  <span class="score">▲ 547</span>
+                  <span class="ccnt">255 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Which enemy in a Soulslike game do you refuse to fight if you can avoid it?</h3>
+                <div class="meta">r/soulslikes · u/daddylongjohnsliver</div>
+              </summary>
+              <div class="body"><p>Headless</p>
+                <a class="go" href="https://reddit.com/r/soulslikes/comments/1vibrz0/which_enemy_in_a_soulslike_game_do_you_refuse_to/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">D</span><span class="cname">Dry-Experience-6268</span><span class="cscore">▲ 2</span></div>
+              <p>They r entirely optional in the game, and aren’t needed for any trophies either. But their drops are pretty decent, they just suck balls to fight. Same with the schimen warriors but they can be cheesed easy so whatever</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">M</span><span class="cname">MattyHealysFauxHawk</span><span class="cscore">▲ 2</span></div>
+              <p>I refuse to fight gank fights alone lol. If you’re bringing a friend I’m bringing a friend 😂</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">T</span><span class="cname">The-Great-Old-One</span><span class="cscore">▲ 2</span></div>
+              <p>Lucky</p></div>
+              </div></details></section><section id="movies">
+          <h2 class="sec-h">Movies & TV</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-movies">Movies & TV</span>
+                  <span class="score">▲ 2.8k</span>
+                  <span class="ccnt">164 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Ted Sarandos Says Netflix Wanted to Make ‘Mindhunter’ Season 3 but David Fincher Was Busy Making a Film: “It just got pushed off and pushed off”</h3>
+                <div class="meta">r/television · u/MarvelsGrantMan136</div>
+              </summary>
+              <div class="body"><p>Ted Sarandos Says Netflix Wanted to Make ‘Mindhunter’ Season 3 but David Fincher Was Busy Making a Film: “It just got pushed off and pushed off”</p>
+                <a class="go" href="https://reddit.com/r/television/comments/1vifxjn/ted_sarandos_says_netflix_wanted_to_make/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">M</span><span class="cname">matthieuC</span><span class="cscore">▲ 37</span></div>
+              <p>Yep the kids are CGI, it was to complicated to work with real kids</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">C</span><span class="cname">cansofgrease</span><span class="cscore">▲ 37</span></div>
+              <p>Well get him fucking unbusy.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">F</span><span class="cname">flopisit32</span><span class="cscore">▲ 24</span></div>
+              <p>This is really pointless perfectionism. 
+
+If your script is good you can shoot it in a warehouse. I think the entire problem with movies and TV shows today is that they will spend huge amounts of money on things that don't matter and just barrel ahead with a terrible script that should never have gotten a green light in the first place. 
+
+Mindhunter already had a good script. It didn't need sidewalk ramps.</p></div>
+              </div></details><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-movies">Movies & TV</span>
+                  <span class="score">▲ 6.8k</span>
+                  <span class="ccnt">2019 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>‘One Night Only’ Director Removed Nudity Because People Dislike Sex on Screen</h3>
+                <div class="meta">r/movies · u/IndividualPleasant23</div>
+              </summary>
+              <div class="body"><p>‘One Night Only’ Director Removed Nudity Because People Dislike Sex on Screen</p>
+                <a class="go" href="https://reddit.com/r/movies/comments/1vijtss/one_night_only_director_removed_nudity_because/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">M</span><span class="cname">Molwar</span><span class="cscore">▲ 4</span></div>
+              <p>I didn't even know they made a show, going to have to look this up.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">S</span><span class="cname">simmerd</span><span class="cscore">▲ 3</span></div>
+              <p>Relegating nudity only to pornography isn't going to help any young person's view of sexuality.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">G</span><span class="cname">gimmeluvin</span><span class="cscore">▲ 3</span></div>
+              <p>yea he's an idiot
+
+don't listen to him</p></div>
+              </div></details></section><section id="reading">
+          <h2 class="sec-h">Reading</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-reading">Reading</span>
+                  <span class="score">▲ 1.2k</span>
+                  <span class="ccnt">122 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>AI is flooding the online book market with poor translations – here’s how to spot them</h3>
+                <div class="meta">r/books · u/ubcstaffer123</div>
+              </summary>
+              <div class="body"><p>Readers and translators warn the online book market is flooding with poor AI translations — misrendered prose, wrong names, and no quality control at the source.</p>
+                <a class="go" href="https://reddit.com/r/books/comments/1vigg3y/ai_is_flooding_the_online_book_market_with_poor/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">M</span><span class="cname">MonkNo6819</span><span class="cscore">▲ 117</span></div>
+              <p>yeah, it’s honestly getting harder to trust anything now. you shouldn’t have to research a book like you’re investigating a scam just to make sure you’re getting the real thing. the fake reviews make it even worse</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">S</span><span class="cname">SuitableDragonfly</span><span class="cscore">▲ 46</span></div>
+              <p>The point is that they can bang it out in an hour and sell enough copies to unsuspecting people on Amazon to make it worth it.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">S</span><span class="cname">SuitableDragonfly</span><span class="cscore">▲ 45</span></div>
+              <p>That's why you use a search engine to search for things, and not a chatbot.</p></div>
+              </div></details><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-reading">Reading</span>
+                  <span class="score">▲ 1.0k</span>
+                  <span class="ccnt">470 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Robin Hobbs review of Dungeon Crawler Carl</h3>
+                <div class="meta">r/Fantasy · u/elephantsgraveyard</div>
+              </summary>
+              <div class="body"><p>Robin Hobbs review of Dungeon Crawler Carl</p>
+                <a class="go" href="https://reddit.com/r/Fantasy/comments/1viftl8/robin_hobbs_review_of_dungeon_crawler_carl/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">B</span><span class="cname">books_cats_please</span><span class="cscore">▲ 16</span></div>
+              <p>She's not everyone though. She's a well-known and well-respected author and her criticism could have an outsized influence. If she rates a debut author poorly, that could potentially tank the author's future prospects in the industry. By only posting praise for what she enjoyed, she can ensure her influence only does good and not harm.
+
+I know that's not the explanation she gave, but I also don't think she was saying others should do as she does and never post a critical review.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">U</span><span class="cname">userRL452</span><span class="cscore">▲ 15</span></div>
+              <p>They still have pop culture references but those references are not really central to the plot or as in your face as Ready Player One.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">B</span><span class="cname">belgar12</span><span class="cscore">▲ 7</span></div>
+              <p>A lot of people are enjoying it. But for some reason it's very boring for me. I read the first one and 10% of the second and the constant "this skill is now level x, this level xx, you can now do xy" was sooo boring. The stuff between was funny.</p></div>
+              </div></details></section><section id="tech">
+          <h2 class="sec-h">Tech</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-tech">Tech</span>
+                  <span class="score">▲ 0</span>
+                  <span class="ccnt">0 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>Nvidia + Wall Street planning $500B 'AI factories'</h3>
+                <div class="meta"></div>
+              </summary>
+              <div class="body"><p>Nvidia and Wall Street banks are planning a wave of $500B 'AI factories' — data-center campuses built for AI workloads, financed like infrastructure projects.</p>
+                <a class="go" href="https://www.rbc.ru/technology_and_media/11/08/2026/6a7a46009a794714b7d9a5c7" target="_blank" rel="noopener">Open source ↗</a>
+                
+              </div></details><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-tech">Tech</span>
+                  <span class="score">▲ 5.3k</span>
+                  <span class="ccnt">414 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>1 Year ago I posted my first homelab here, now it's grown to a 1.2 million user/container platform.</h3>
+                <div class="meta">r/homelab · u/ATubbo</div>
+              </summary>
+              <div class="body"><p>Hey so around one year ago I first started getting into home labbing totally inspired by the members of this sub and made a post talking about my plans to create a free minecraft server host. I was met with a lot of criticism but more importantly some super helpful knowledge and advice to improve my skills. So I wanted to make an update post 1 year later and talk about the lab and how it has grown and the pains and struggles I faced.
+
+This all started as a passion project to provide people with Minecraft servers for free as I thought the hosting space for minecraft was getting way to expensive for the cheap and older gen hardware that was being offered. I started with 2 systems that both ran duel AMD EPYC 7551s and 256gb DDR4. However the first thing I learnt doing this is that event though they had much more threads and ram the density for Minecraft containers was only 15% better than using consumer Ryzen 9 7950X &amp; 5600MT/s DDR5. But the main differences between the two was the user experience. Servers on the Ryzen Nodes were able to hold in some cases 20 more players than the EPYC nodes (5 -&gt; 25). This was down to the single threaded performance.  
+From here I decided to remove and power down the EPYC systems.
+
+Fast foward a ton and I am now at 100k users with about 300 ccu on the network. At this point the ad revenue on the panel &amp; affiliate conversion started to show that this could grow into something sustainable. So I took my biggest risk yet and brought 10 new Ryzrn 9 7950X, 128gb DDR5, 1TB NVMe nodes and migrated from using unmanaged Unify networking to Arista managed network switches. Specifically the Arista 7050SX &amp; 7050QX however using a scuffed mini pc with a usb dongle NIC running VyOS. Honestly that mini pc did me proud for 4 months without failt until it went catastrophically wrong and I needed to rebuild the network from the ground up (this becomes a patteren).
+
+Now I am gonna jump foward to today as I wanna keep things short and go into tech spec. Today the host is running:   
+  
+\- 31x Ryzen 9 7950X, 128gb DDR5 5600MT/s, 1TB gen 4 NVMe, 10Gbps SFP+ NIC  
+\- 4x Hypervisors Duel AMD EYPC 7551s, 256gb-512gb DDR4, 4TB Gen 3 NVMe, 25Gbps SFP28 NIC  
+\- 2x Hypervisors Ryzen 9 7950X, 256gb DDR5 5600MT/s, 4TB Gen 4 NVMe, 10Gbps SFP+ NIC  
+\- 1x 172TB NAS, Raid 10, Duel 40Gbps QSFP NIC  
+\- 2x Arista 7050SX Leaf Switchs  
+\- 2x Arista 7050QX Spine Switchs  
+\- 2x Juniper QFX5100 Switchs (ASIC GRE Encapsulation)  
+\- 1x VyOS Duel 100Gbps Firewall Router  
+\- 1x Cisco Router that my ISP gave me to terminate a P2P tunnel.
+
+We have expanded a lot over the year and it has come with a ton of challenges.   
+First of all I was stupid to assume that the adsense CPM would stay the same. I quickly started to lose a ton of money on the project so as an effort to save the host we started selling cheap VPS plans using the original hardware I phased out at the start of minecarft hosting and luckily it was a massive success now accounting for 80% of our total revenue allowing us to buy even more nodes for free hosting and better backups.  
+Secondly I underestimated peoples want to fuck my shit up and we have been massivly hit by DDoS attacks daily 900Gbps+ Layer 3/4 and also Layer 7. With an uplink of 95p 1Gbps-10Gbps this was a massive issue then caused us to move off of OVH completely as VAC was leaking 2-3% of attack traffic to a new provider that to date has not leaked more than 0.002% of attack traffic.  
+Thirdly the pterodactyl admin panel grinds to a stand still when you have over 800k servers registered and luckly there are people much smarter than me on the team that were able to fork the software and create new caching and better backups, limbo, etc.  
+And Finally when your energy provider offers you a fixed rate per kWh of 22.3p per kWh just know that if it sems to good to be true it sadly is.
+
+If anyone has any questions about stuff feel free to reply below I will answer the best I can but I am still learning a ton and thanks people in r/homelab for keeping me inspired.</p>
+                <a class="go" href="https://reddit.com/r/homelab/comments/1viitqo/1_year_ago_i_posted_my_first_homelab_here_now_its/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">B</span><span class="cname">Big_Wave9732</span><span class="cscore">▲ 75</span></div>
+              <p>Mandatory.
+
+https://preview.redd.it/ruy1dkpf48ih1.jpeg?width=770&amp;format=pjpg&amp;auto=webp&amp;s=7b3d7de8038c90fd400ffe0f56ac921cc38fe712</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">D</span><span class="cname">dinandrekompis</span><span class="cscore">▲ 11</span></div>
+              <p>Haha a de ere</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">K</span><span class="cname">Koopslovestogame</span><span class="cscore">▲ 8</span></div>
+              <p>Cloud computing in a nutshell.</p></div>
+              </div></details></section><section id="cool">
+          <h2 class="sec-h">Cool stuff</h2><details class="card item" open>
+              <summary>
+                <div class="row1"><span class="chip chip-cool">Cool stuff</span>
+                  <span class="score">▲ 12.3k</span>
+                  <span class="ccnt">412 comments</span>
+                  <span class="chev">▾</span></div>
+                <h3>TIL that American rapper Pusha T wrote the McDonald’s “I’m lovin’ it” jingle in 2003, and before it released, he had to choose between $500,000 or future royalties. He chose the upfront sum and missed out on tens of millions of dollars, with his work becoming one of the most recognized jingles ever.</h3>
+                <div class="meta">r/todayilearned · u/altrightobserver</div>
+              </summary>
+              <div class="body"><p>TIL that American rapper Pusha T wrote the McDonald’s “I’m lovin’ it” jingle in 2003, and before it released, he had to choose between $500,000 or future royalties. He chose the upfront sum and missed out on tens of millions of dollars, with his work becoming one of the most recognized jingles ever.</p>
+                <a class="go" href="https://reddit.com/r/todayilearned/comments/1viluab/til_that_american_rapper_pusha_t_wrote_the/" target="_blank" rel="noopener">Open source ↗</a>
+                <div class="cmt">
+              <div class="cmeta"><span class="cav">T</span><span class="cname">TheGreatMalagan</span><span class="cscore">▲ 6</span></div>
+              <p>Was also Charlie's job in Two and a Half Men. Was this just a common job to have in sitcoms?</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">G</span><span class="cname">grower_thrower</span><span class="cscore">▲ 3</span></div>
+              <p>It makes sense if you are broke and need a bird in hand. I don’t know what Pusha’s fiscal situation was at the time, but I know I’d take the 500k.
+
+Apparently the whole thing is bullshit, though.</p></div>
+<div class="cmt">
+              <div class="cmeta"><span class="cav">R</span><span class="cname">R3dMoose</span><span class="cscore">▲ 3</span></div>
+              <p>In what context? Epstein rubbed shoulders with a lot of people, just saying someone was name dropped in the files doesn’t mean they’re a pedophile without additional context.</p></div>
+              </div></details></section>
+  <section id="fun"><h2 class="sec-h">Fun fact</h2>
+          <div class="card fun"><p>Stan Lee's Spider-Man was initially rejected by his publisher, who called it "the worst idea" — teenage superheroes with personal problems weren't done. Marvel only greenlit it in 1962 as the final issue of a dying comic line. It became their flagship.</p>
+          <a class="go" href="https://reddit.com/r/todayilearned/comments/1viltaf/til_that_stan_lees_idea_for_spiderman_was/" target="_blank" rel="noopener">Source ↗</a></div></section>
+  <section id="memes"><h2 class="sec-h">Memes</h2><div class="mgrid"><figure class="mcard"><img src="https://cs17.pikabu.ru/s/2026/08/10/16/4svuwcxc.jpg" loading="lazy" alt="meme">
+          <figcaption><a href="https://pikabu.ru/story/oldyi_pomnyat_14230508" target="_blank" rel="noopener">Олды помнят</a></figcaption></figure><figure class="mcard"><img src="https://cs20.pikabu.ru/s/2026/08/10/11/4mxcpqxa.jpg" loading="lazy" alt="meme">
+          <figcaption><a href="https://pikabu.ru/story/0_osuzhdeniya_100_ponimaniya_14229569" target="_blank" rel="noopener">0% осуждения, 100% понимания</a></figcaption></figure></div></section>
+  <footer>That's it for today. Reply «rate» to grade this brief.</footer>
+</main></div>
+<script>
+const prog=document.getElementById('prog');
+addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
+const links=[...document.querySelectorAll('.side a[data-sec]')];
+const secs=links.map(a=>document.getElementById(a.dataset.sec)).filter(Boolean);
+const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.dataset.sec===e.target.id))}})},{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(s=>spy.observe(s));
+</script></body></html>
